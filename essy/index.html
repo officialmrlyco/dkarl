@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A soft sky-blue, peach, and pink friendship page for Essy, Esther.">
+  <!-- Share preview note: every social app needs absolute image URLs to show Essy's preview photo. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="dkarl.site">
+  <meta property="og:title" content="For Essy | Esther">
+  <meta property="og:description" content="A soft little page for Essy, a friend who became rare in the quietest way.">
+  <meta property="og:url" content="https://dkarl.site/essy/">
+  <meta property="og:image" content="https://dkarl.site/essy/images/preview.jpg">
+  <meta property="og:image:url" content="https://dkarl.site/essy/images/preview.jpg">
+  <meta property="og:image:secure_url" content="https://dkarl.site/essy/images/preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="A portrait photo of Essy, Esther.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="For Essy | Esther">
+  <meta name="twitter:description" content="A soft little page for Essy, a friend who became rare in the quietest way.">
+  <meta name="twitter:image" content="https://dkarl.site/essy/images/preview.jpg">
+  <link rel="canonical" href="https://dkarl.site/essy/">
+  <link rel="image_src" href="https://dkarl.site/essy/images/preview.jpg">
+  <link rel="icon" type="image/jpeg" href="images/preview.jpg">
+  <link rel="apple-touch-icon" href="images/preview.jpg">
+  <title>For Essy | Esther</title>
+  <style>
+    /* Theme note: Essy's colors stay airy and different from Betty's deep pink romance page. */
+    :root {
+      --sky-950: #123047;
+      --sky-800: #175b83;
+      --sky-500: #43a9de;
+      --sky-200: #ccefff;
+      --peach-500: #ff9e78;
+      --peach-200: #ffe1d3;
+      --pink-500: #f56fae;
+      --pink-100: #ffe5f0;
+      --gold: #d49a3a;
+      --ink: #263142;
+      --muted: #667485;
+      --white: #ffffff;
+      --soft: #fff9fb;
+      --shadow: 0 24px 70px rgba(23, 91, 131, 0.20);
+    }
+
+    /* Reset note: predictable spacing keeps the page clean on phones and desktops. */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(67, 169, 222, 0.28), transparent 32rem),
+        radial-gradient(circle at 85% 18%, rgba(245, 111, 174, 0.22), transparent 26rem),
+        linear-gradient(180deg, #edfaff 0%, #fff9fb 45%, #fff0e8 100%);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px min(6vw, 72px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(23, 91, 131, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      color: var(--sky-950);
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 13px;
+      border: 1px solid rgba(23, 91, 131, 0.16);
+      border-radius: 999px;
+      color: var(--sky-800);
+      background: rgba(255, 255, 255, 0.54);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    /* Hero note: the first screen hints at emotion but keeps it friendship-safe. */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 0.86fr;
+      align-items: center;
+      gap: min(5vw, 56px);
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0 56px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--pink-500);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--sky-950);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 9vw, 7.6rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.28rem;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 22px 0 0;
+      color: #405264;
+      font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+      overflow-wrap: break-word;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 8px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--sky-800), var(--sky-500));
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 16px 34px rgba(23, 91, 131, 0.24);
+    }
+
+    .button.secondary {
+      color: var(--sky-800);
+      background: var(--white);
+      border: 1px solid rgba(23, 91, 131, 0.16);
+      box-shadow: none;
+    }
+
+    .hero-frame {
+      position: relative;
+      min-height: 600px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .hero-frame::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .badge {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      z-index: 3;
+      max-width: 260px;
+      padding: 16px;
+      border-radius: 8px;
+      color: var(--sky-950);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 16px 34px rgba(18, 48, 71, 0.18);
+      font-weight: 800;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      max-width: 780px;
+      margin-bottom: 28px;
+    }
+
+    .section-title p,
+    p {
+      margin: 0;
+    }
+
+    .section-title p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Letter note: this is where the crush is hinted, not confessed directly. */
+    .letter {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .letter-photo,
+    .letter-card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+    }
+
+    .letter-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .letter-card {
+      padding: clamp(24px, 5vw, 46px);
+      border: 1px solid rgba(245, 111, 174, 0.18);
+    }
+
+    .letter-card p + p {
+      margin-top: 18px;
+    }
+
+    .signature {
+      color: var(--sky-800);
+      font-weight: 900;
+    }
+
+    /* Timeline note: specific moments make the friendship feel real without over-explaining. */
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .memory {
+      display: grid;
+      grid-template-columns: 156px 1fr;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid rgba(67, 169, 222, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 16px 38px rgba(23, 91, 131, 0.08);
+    }
+
+    .memory time {
+      color: var(--pink-500);
+      font-weight: 900;
+    }
+
+    .memory p {
+      color: var(--muted);
+    }
+
+    .traits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .trait {
+      min-height: 210px;
+      padding: 24px;
+      border-radius: 8px;
+      color: var(--sky-950);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 225, 211, 0.86)),
+        linear-gradient(135deg, var(--sky-200), var(--pink-100));
+      border: 1px solid rgba(245, 111, 174, 0.16);
+      box-shadow: 0 16px 38px rgba(23, 91, 131, 0.10);
+    }
+
+    .trait p {
+      color: var(--muted);
+    }
+
+    /* Gallery note: all copied images are numbered, and this script fills the grid automatically. */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .photo {
+      min-height: 230px;
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--sky-200);
+      box-shadow: 0 14px 30px rgba(23, 91, 131, 0.12);
+      cursor: pointer;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      display: block;
+      object-fit: cover;
+      transition: transform 240ms ease;
+    }
+
+    .photo:hover img,
+    .photo:focus-visible img {
+      transform: scale(1.05);
+    }
+
+    .closing {
+      margin-bottom: 64px;
+      padding: clamp(28px, 6vw, 56px);
+      border-radius: 8px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(18, 48, 71, 0.92), rgba(245, 111, 174, 0.76), rgba(255, 158, 120, 0.82)),
+        url("images/preview.jpg") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .closing h2 {
+      color: var(--white);
+    }
+
+    .closing p {
+      max-width: 760px;
+      margin-top: 16px;
+      color: #fff8fb;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      padding: 28px 18px 42px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      place-items: center;
+      padding: 22px;
+      background: rgba(18, 48, 71, 0.90);
+    }
+
+    .lightbox.is-open {
+      display: grid;
+    }
+
+    .lightbox img {
+      max-width: min(100%, 1040px);
+      max-height: 82vh;
+      border-radius: 8px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.40);
+    }
+
+    .lightbox button {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      color: var(--sky-950);
+      background: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 940px) {
+      .hero,
+      .letter,
+      .traits {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-frame,
+      .hero-frame img {
+        min-height: 520px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        display: block;
+        width: calc(100vw - 28px);
+        max-width: calc(100vw - 28px);
+        min-height: auto;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 54px;
+        overflow: hidden;
+      }
+
+      /* Mobile note: narrow screens get stricter text bounds so no line clips at the edge. */
+      .hero-copy,
+      .lead {
+        width: min(100%, 330px);
+        max-width: 330px;
+      }
+
+      .lead {
+        font-size: 1rem;
+        line-height: 1.75;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-frame {
+        width: 100%;
+        margin-top: 26px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 16vw, 4.6rem);
+      }
+
+      .hero-frame,
+      .hero-frame img,
+      .letter-photo img {
+        min-height: 420px;
+      }
+
+      .hero-actions,
+      .button {
+        width: 100%;
+      }
+
+      .memory {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">For Essy - Esther</div>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#letter">Letter</a>
+      <a href="#story">Story</a>
+      <a href="#gallery">Photos</a>
+      <a href="#maybe">Maybe</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Essy introduction">
+    <div class="hero-copy">
+      <p class="eyebrow">A soft page for a rare friend</p>
+      <h1>Essy</h1>
+      <p class="lead">Esther, this is not a loud confession. It is just a beautiful place for the kind of friendship that grew fast, stayed memorable, and somehow feels like it may still be carrying a quiet question.</p>
+      <div class="hero-actions">
+        <a class="button" href="#letter">Read This Slowly</a>
+        <a class="button secondary" href="#gallery">See The Photos</a>
+      </div>
+    </div>
+    <div class="hero-frame">
+      <img src="images/preview.jpg" alt="A beautiful portrait of Essy">
+      <div class="badge">For the girl who can be stubborn, dramatic, kind, and still very easy to miss.</div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Letter copy note: the wording hints at feelings without directly saying crush. -->
+    <section id="letter" class="letter" aria-label="Letter for Essy">
+      <div class="letter-photo">
+        <img src="images/img2.jpg" alt="A soft memory of Essy">
+      </div>
+      <article class="letter-card">
+        <div class="section-title">
+          <h2>Dear Esther</h2>
+          <p>Some friendships do not arrive with noise. They start quietly, then become a place you remember.</p>
+        </div>
+        <p>Essy, I met you in 2019, but back then we barely talked. It was almost funny because we feared each other for no real reason. Then early 2020 came, we started talking, and within weeks we moved from strangers to best friends so quickly it still feels surprising.</p>
+        <p>You are stubborn in that baby way, childish in a way that can make someone smile, and dramatic enough to be disappointed over a five-second missed ring call. But behind all that is a kind heart. You do not even keep anger for long, and somehow you can still be friendly even when someone has annoyed you.</p>
+        <p>I think that is one of the things that makes you rare. You are beautiful, yes, in a way that is hard to ignore, but it is also the way you accept your mistakes, the way you laugh, the way you become easy to talk to, and the way your presence can make ordinary days feel lighter.</p>
+        <p>I will not say everything too directly here. Some things are better left as a small mystery. But if you ever read between the lines and feel like this page is saying there might be something more hidden inside the friendship, maybe you are not completely wrong.</p>
+        <p class="signature">You are special to me, Essy. In a way I still want to understand slowly.</p>
+      </article>
+    </section>
+
+    <!-- Story note: these real details keep the page personal without making it too heavy. -->
+    <section id="story" aria-label="Essy story timeline">
+      <div class="section-title">
+        <h2>How It Became Us</h2>
+        <p>Not dating, not a confession, just the kind of story that keeps a person somewhere close in your thoughts.</p>
+      </div>
+      <div class="timeline">
+        <article class="memory">
+          <time>2019</time>
+          <div>
+            <h3>The Quiet Beginning</h3>
+            <p>We met, but we did not really talk. We even feared each other a little, which now feels like the first funny part of the story.</p>
+          </div>
+        </article>
+        <article class="memory">
+          <time>Early 2020</time>
+          <div>
+            <h3>Best Friends, Fast</h3>
+            <p>When we finally started talking, everything grew quickly. Within weeks, the friendship became natural, close, and hard to replace.</p>
+          </div>
+        </article>
+        <article class="memory">
+          <time>Calls And Texts</time>
+          <div>
+            <h3>Small Things That Stayed</h3>
+            <p>We texted, laughed, called, missed each other, and built those small moments that do not look big from outside but mean something when you remember them.</p>
+          </div>
+        </article>
+        <article class="memory">
+          <time>August 16, 2023</time>
+          <div>
+            <h3>The Dating Rumor Day</h3>
+            <p>Your brother reported us, and your mom came to confront me because they thought we were dating. It was funny, awkward, and honestly unforgettable.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Trait note: these cards explain what kind of girl Esther is. -->
+    <section aria-label="What makes Essy special">
+      <div class="section-title">
+        <h2>What Makes You Essy</h2>
+        <p>The stubbornness, kindness, drama, and beauty all somehow live in one person.</p>
+      </div>
+      <div class="traits">
+        <article class="trait">
+          <h3>Kind After Everything</h3>
+          <p>You can be annoyed, but anger does not seem to stay long in you. You still find a way to be friendly, even when someone has tested you.</p>
+        </article>
+        <article class="trait">
+          <h3>Dramatic, But Soft</h3>
+          <p>You can make a whole case out of a missed five-second call, but somehow that drama feels like part of the Essy package.</p>
+        </article>
+        <article class="trait">
+          <h3>Beautiful And Familiar</h3>
+          <p>You are marvelous beautiful, but what makes you stay in the mind is how easy you are to laugh with, miss, and remember.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" aria-label="Essy photo gallery">
+      <div class="section-title">
+        <h2>Little Frames Of Essy</h2>
+        <p>Photos kept softly, like a friendship with a question mark at the edge.</p>
+      </div>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <!-- Closing note: the ending hints at a possible future without asking for an answer. -->
+    <section id="maybe" class="closing" aria-label="Maybe one day message">
+      <h2>Maybe Some Things Need Time</h2>
+      <p>Essy, this page is not here to pressure anything. It is here to say that you are valued, remembered, and seen in a way that is not ordinary.</p>
+      <p>Maybe we stay exactly as we are. Maybe one day the story grows into something neither of us has to force. Either way, you are special to me in a mysterious way, and I hope this page makes you feel that quietly.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made softly for Essy, Esther.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-label="Photo preview" aria-hidden="true">
+    <button type="button" id="closeLightbox" aria-label="Close photo preview">x</button>
+    <img id="lightboxImage" src="images/img1.jpg" alt="Selected Essy memory">
+  </div>
+
+  <script>
+    /* Gallery note: 32 copied images are expected, and missing files fail quietly. */
+    const maxGalleryImages = 32;
+    const galleryGrid = document.getElementById("galleryGrid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    async function imageExists(imagePath) {
+      try {
+        const response = await fetch(imagePath, { method: "HEAD" });
+        return response.ok;
+      } catch (error) {
+        return true;
+      }
+    }
+
+    async function buildGallery() {
+      for (let imageNumber = 1; imageNumber <= maxGalleryImages; imageNumber += 1) {
+        const imagePath = `images/img${imageNumber}.jpg`;
+
+        if (!(await imageExists(imagePath))) {
+          continue;
+        }
+
+        const button = document.createElement("button");
+        const image = document.createElement("img");
+
+        button.className = "photo";
+        button.type = "button";
+        button.setAttribute("aria-label", `Open Essy photo ${imageNumber}`);
+
+        image.alt = `Essy photo ${imageNumber}`;
+        image.loading = imageNumber <= 4 ? "eager" : "lazy";
+
+        image.addEventListener("error", () => {
+          button.remove();
+        });
+
+        button.addEventListener("click", () => {
+          lightboxImage.src = imagePath;
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+
+        button.appendChild(image);
+        galleryGrid.appendChild(button);
+        image.src = imagePath;
+      }
+    }
+
+    /* Lightbox note: this keeps photo viewing smooth on both phone and desktop. */
+    function closePhotoPreview() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+    }
+
+    closeLightbox.addEventListener("click", closePhotoPreview);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closePhotoPreview();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePhotoPreview();
+      }
+    });
+
+    buildGallery();
+  </script>
+</body>
+</html>
